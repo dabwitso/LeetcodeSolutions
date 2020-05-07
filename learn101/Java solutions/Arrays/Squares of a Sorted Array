@@ -1,0 +1,24 @@
+class Solution {
+    public int[] sortedSquares(int[] A) {
+
+        int[] output = new int[A.length]; /* create an output integer array
+					with same capacity as input array A*/
+	
+        int index = 0; 
+        
+        for(int x: A){ 
+            output[index] = x*x;
+            index++;
+        }
+	/* This is an alternative slightly less efficient for loop without
+	   initializing index, by one extra operation.
+
+	 for(int i=0;i<A.length;x++){
+	     output[i] = A[i]*A[i];
+	     }
+	*/
+
+        Arrays.sort(output);
+        return output;
+    }
+}

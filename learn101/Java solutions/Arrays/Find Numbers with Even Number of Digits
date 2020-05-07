@@ -1,0 +1,14 @@
+class Solution {
+    public int findNumbers(int[] nums) {
+
+    /* For each integer, convert to string and use length method to 
+       to count number of digits. Use modulus of 2 to determine if even.*/
+
+        int count = 0;
+        for(int x: nums){
+            count = Integer.toString(x).length()%2 == 0? count+1:count;
+        }
+        return count;
+    }
+}
+

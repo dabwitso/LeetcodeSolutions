@@ -1,0 +1,11 @@
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        if 1<= len(A) <= 10000:
+            output = []
+
+            for i in A:
+                if -10000 <= i <= 10000:
+                    output.append(i**2)
+        
+        return sorted(output)
+        

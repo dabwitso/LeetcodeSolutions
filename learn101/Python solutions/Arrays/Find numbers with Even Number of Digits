@@ -1,0 +1,17 @@
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+
+        count = 0
+        if 1 <= len(nums) <= 500: # check constraint 1 <= nums.length <= 500
+
+            max_limit = 10**5 # constraint
+
+            for x in nums:
+                if 1 <= x <= max_limit: # check constaint 1 <= nums[i] <= 10^5
+                    num_of_digits = len(str(x))
+                    if num_of_digits%2 == 0: # is even number of digits
+                        count += 1
+        else:
+            print("Constraint not satisfied: 1 <= nums.length <= 500")
+
+        return count

@@ -1,0 +1,45 @@
+class Solution {
+    public void duplicateZeros(int[] arr) {
+
+        /* Create a temp array to store the duplicated array.
+        if element is not zero, do following:
+        1. copy zero to current index
+        2. increment output index and insert additional zero
+        3. reduce the for loop upper limit for the arr array to
+           simulate the last element being removed from array.
+        
+        This approach eliminates the need to shift positions
+        everytime we encounter a zero element.
+
+	Note: The problem requires no additional return array but 
+	a modification of the given input array. Hence, the addition
+	of the last for loop overriding the input array. 
+        */
+        
+        
+       	int inputIndexLimit = arr.length;
+		int[] output = new int[inputIndexLimit];
+		int outputIndex = 0; // this changes independently in loop. 
+
+		for(int i=0;i<inputIndexLimit;i++) {
+			if(arr[i]!=0) {
+				output[outputIndex]=arr[i];
+			}
+			else {
+				output[outputIndex]=0;
+                // if statement below prevents out of bounds
+                // index error when end of array is reached.
+				if(outputIndex+1<arr.length) {  
+					output[outputIndex+1]=0;
+					outputIndex++;
+					inputIndexLimit--;
+				}
+			}
+			outputIndex++;
+		}
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=output[i];
+		}
+        
+    }
+}
